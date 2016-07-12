@@ -4,6 +4,6 @@
     {
         bool Exists(string text);
 
-        void Store(string text);
+        void Store(Slug slug);
     }
 }

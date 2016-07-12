@@ -22,7 +22,7 @@ namespace SlugStar
             //we might get lucky on first try
             if (!_slugStore.Exists(initialSlug))
             {
-                _slugStore.Store(initialSlug);
+                _slugStore.Store(new Slug(initialSlug));
                 return initialSlug;
             }
 
@@ -48,7 +48,7 @@ namespace SlugStar
                 if (string.IsNullOrEmpty(slugWithUniquifier))
                     return GenerateAndStoreSlugWithNumberAppendage(text + " " + uniquifiers.First());
 
-                _slugStore.Store(slugWithUniquifier);
+                _slugStore.Store(new Slug(slugWithUniquifier));
 
                 return slugWithUniquifier;
             }
@@ -67,7 +67,7 @@ namespace SlugStar
                 number++;
             }
 
-            _slugStore.Store(slugWithNumber);
+            _slugStore.Store(new Slug(slugWithNumber));
 
             return slugWithNumber;
         }

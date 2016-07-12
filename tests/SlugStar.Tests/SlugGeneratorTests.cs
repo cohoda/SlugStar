@@ -52,7 +52,7 @@ namespace SlugStar.Tests
 
             var result = _slugGenerator.GenerateSlug("Some text");
 
-            A.CallTo(() => _fakeSlugStore.Store("some-text"))
+            A.CallTo(() => _fakeSlugStore.Store(A<Slug>.That.Matches(x => x.Value == "some-text")))
                 .MustHaveHappened();
 
             Assert.That(result, Is.EqualTo("some-text"));
@@ -77,7 +77,7 @@ namespace SlugStar.Tests
 
             var result = _slugGenerator.GenerateSlug("Some text", new[] { "unique" });
 
-            A.CallTo(() => _fakeSlugStore.Store("some-text-unique"))
+            A.CallTo(() => _fakeSlugStore.Store(A<Slug>.That.Matches(x => x.Value == "some-text-unique")))
                 .MustHaveHappened();
 
             Assert.That(result, Is.EqualTo("some-text-unique"));
@@ -110,7 +110,7 @@ namespace SlugStar.Tests
 
             var result = _slugGenerator.GenerateSlug("Some text", new[] { "uniqueone", "uniquetwo" });
 
-            A.CallTo(() => _fakeSlugStore.Store("some-text-uniquetwo"))
+            A.CallTo(() => _fakeSlugStore.Store(A<Slug>.That.Matches(x => x.Value == "some-text-uniquetwo")))
                 .MustHaveHappened();
 
             Assert.That(result, Is.EqualTo("some-text-uniquetwo"));
@@ -143,7 +143,7 @@ namespace SlugStar.Tests
 
             var result = _slugGenerator.GenerateSlug("Some text");
 
-            A.CallTo(() => _fakeSlugStore.Store("some-text-2"))
+            A.CallTo(() => _fakeSlugStore.Store(A<Slug>.That.Matches(x => x.Value == "some-text-2")))
                 .MustHaveHappened();
 
             Assert.That(result, Is.EqualTo("some-text-2"));
@@ -190,7 +190,7 @@ namespace SlugStar.Tests
 
             var result = _slugGenerator.GenerateSlug("Some text", new[] { "uniqueone", "uniquetwo" });
 
-            A.CallTo(() => _fakeSlugStore.Store("some-text-uniqueone-2"))
+            A.CallTo(() => _fakeSlugStore.Store(A<Slug>.That.Matches(x => x.Value == "some-text-uniqueone-2")))
                 .MustHaveHappened();
 
             Assert.That(result, Is.EqualTo("some-text-uniqueone-2"));
