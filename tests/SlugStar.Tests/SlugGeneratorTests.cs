@@ -1,6 +1,8 @@
 ﻿using System;
 using FakeItEasy;
 using NUnit.Framework;
+using SlugStar.SlugAlgorithm;
+using SlugStar.SlugStore;
 
 namespace SlugStar.Tests
 {
@@ -193,6 +195,5 @@ namespace SlugStar.Tests
 
             Assert.That(result, Is.EqualTo("some-text-uniqueone-2"));
         }
-
     }
 }

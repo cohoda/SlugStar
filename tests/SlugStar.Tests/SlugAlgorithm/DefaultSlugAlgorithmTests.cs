@@ -1,6 +1,7 @@
 ﻿using System;
 using FakeItEasy;
 using NUnit.Framework;
+using SlugStar.SlugAlgorithm;
 
 namespace SlugStar.Tests
 {

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace SlugStar
+namespace SlugStar.SlugAlgorithm
 {
     public class SlugAlgorithmOptions
     {

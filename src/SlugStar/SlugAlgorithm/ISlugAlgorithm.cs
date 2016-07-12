@@ -1,4 +1,4 @@
-﻿namespace SlugStar
+﻿namespace SlugStar.SlugAlgorithm
 {
     public interface ISlugAlgorithm
     {

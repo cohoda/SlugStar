@@ -34,11 +34,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DefaultSlugAlgorithm.cs" />
-    <Compile Include="ISlugAlgorithm.cs" />
-    <Compile Include="ISlugStore.cs" />
+    <Compile Include="SlugStore\ISlugStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SlugAlgorithmOptions.cs" />
+    <Compile Include="SlugAlgorithm\SlugAlgorithmOptions.cs" />
+    <Compile Include="SlugAlgorithm\DefaultSlugAlgorithm.cs" />
+    <Compile Include="SlugAlgorithm\ISlugAlgorithm.cs" />
     <Compile Include="SlugGenerator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

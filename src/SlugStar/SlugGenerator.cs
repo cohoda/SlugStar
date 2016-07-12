@@ -1,4 +1,6 @@
 using System.Linq;
+using SlugStar.SlugAlgorithm;
+using SlugStar.SlugStore;
 
 namespace SlugStar
 {

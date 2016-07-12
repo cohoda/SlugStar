@@ -1,4 +1,4 @@
-﻿namespace SlugStar
+﻿namespace SlugStar.SlugStore
 {
     public interface ISlugStore
     {
