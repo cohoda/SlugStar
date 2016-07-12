@@ -45,6 +45,7 @@
     <Compile Include="DefaultSlugAlgorithmTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SlugAlgorithmOptionsTests.cs" />
+    <Compile Include="SlugGeneratorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
