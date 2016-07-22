@@ -2,7 +2,7 @@
 {
     public interface ISlugStore
     {
-        bool Exists(string text);
+        bool Exists(string slug);
 
         void Store(Slug slug);
     }
