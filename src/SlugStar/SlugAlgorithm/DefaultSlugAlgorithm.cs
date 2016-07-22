@@ -39,7 +39,10 @@ namespace SlugStar.SlugAlgorithm
 
         public string Slug(string phrase, SlugAlgorithmOptions options)
         {
-            return options.Manipulators.Aggregate(phrase, (current, manipulator) => manipulator(current));
+            var result = phrase;
+            foreach (var manipulator in options.Manipulators)
+                result = manipulator(result);
+            return result;
         }
     }
 }
