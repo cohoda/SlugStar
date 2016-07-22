@@ -40,12 +40,14 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="SlugAlgorithm\DefaultSlugAlgorithmTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SlugAlgorithm\SlugAlgorithmOptionsTests.cs" />
     <Compile Include="SlugGeneratorTests.cs" />
+    <Compile Include="SlugStore\InMemorySlugStoreTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
