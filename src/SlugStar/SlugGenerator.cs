@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using SlugStar.SlugAlgorithm;
 using SlugStar.SlugStore;
@@ -29,16 +30,18 @@ namespace SlugStar
             //if we've got uniquifiers, iterate them
             if (uniquifiers != null && uniquifiers.Any())
             {
-                var slugWithUniquifier = string.Empty;
+                string slugWithUniquifier = null;
 
                 var uniquifierIterationIndex = 0;
 
-                while (slugWithUniquifier == string.Empty && uniquifierIterationIndex < uniquifiers.Length)
+                while (string.IsNullOrEmpty(slugWithUniquifier) && uniquifierIterationIndex < uniquifiers.Length)
                 {
-                    //get the uniquifier by index
                     var uniquifier = uniquifiers.ElementAt(uniquifierIterationIndex);
 
-                    slugWithUniquifier = GenerateSlugWithAppendageAndCheckIfExists(text, uniquifier);
+                    slugWithUniquifier = _slugAlgorithm.Slug(text + " " + uniquifier);
+
+                    if (_slugStore.Exists(slugWithUniquifier))
+                        slugWithUniquifier = null;
 
                     uniquifierIterationIndex++;
                 }
@@ -46,39 +49,40 @@ namespace SlugStar
                 //we couldn't generate a unique slug with any of the uniquifiers supplied
                 //so now use the first uniquifier in the list, and append an incremental number until we find the unique
                 if (string.IsNullOrEmpty(slugWithUniquifier))
-                    return GenerateAndStoreSlugWithNumberAppendage(text + " " + uniquifiers.First());
+                    return GenerateAndStoreSlugWithIncrementedNumberAppendage(text + " " + uniquifiers.First());
 
                 _slugStore.Store(new Slug(slugWithUniquifier));
 
                 return slugWithUniquifier;
             }
             //no uniquifiers so add number on the end until we find a unique value
-            return GenerateAndStoreSlugWithNumberAppendage(text);
+            return GenerateAndStoreSlugWithIncrementedNumberAppendage(text);
         }
 
-        private string GenerateAndStoreSlugWithNumberAppendage(string text)
+        private string GenerateAndStoreSlugWithIncrementedNumberAppendage(string text)
         {
-            var slugWithNumber = string.Empty;
+            // this could be a bit slow if there's a load of slugs with the same precident:
+            //slug-1
+            //slug-2
+            //slug-3
+            //etc.... 
+
+            string slugWithNumber = null;
             var number = 1;
 
-            while (slugWithNumber == string.Empty)
+            while (slugWithNumber == null)
             {
-                slugWithNumber = GenerateSlugWithAppendageAndCheckIfExists(text, number.ToString());
+                slugWithNumber = _slugAlgorithm.Slug(text + " " + number);
+
+                if (_slugStore.Exists(slugWithNumber))
+                    slugWithNumber = null;
+
                 number++;
             }
 
             _slugStore.Store(new Slug(slugWithNumber));
 
             return slugWithNumber;
-        }
-
-        private string GenerateSlugWithAppendageAndCheckIfExists(string text, string appendage)
-        {
-            var textWithAppendage = text + " " + appendage;
-            var slugWithAppendage = _slugAlgorithm.Slug(textWithAppendage);
-
-            return !_slugStore.Exists(slugWithAppendage)
-                ? slugWithAppendage : string.Empty;
         }
     }
 }
