@@ -5,16 +5,16 @@ namespace SlugStar.SlugStore
 {
     public class InMemorySlugStore : ISlugStore
     {
-        internal static ConcurrentBag<Slug> Cache = new ConcurrentBag<Slug>();
+        internal static ConcurrentDictionary<string, Slug> Cache = new ConcurrentDictionary<string, Slug>();
 
         public bool Exists(string slug)
         {
-            return Cache.Any(x => x.Value == slug);
+            return Cache.ContainsKey(slug);
         }
 
         public void Store(Slug slug)
         {
-            Cache.Add(slug);
+            Cache.TryAdd(slug.Value, slug);
         }
     }
 }

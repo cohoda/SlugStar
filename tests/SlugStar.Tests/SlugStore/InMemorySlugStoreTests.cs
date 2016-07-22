@@ -20,7 +20,7 @@ namespace SlugStar.Tests.SlugStore
         public void BeforeEachTest()
         {
             _inMemorySlugStore = new InMemorySlugStore();
-            InMemorySlugStore.Cache = new ConcurrentBag<Slug>();
+            InMemorySlugStore.Cache = new ConcurrentDictionary<string, Slug>();
         }
 
         [Test]
@@ -28,7 +28,7 @@ namespace SlugStar.Tests.SlugStore
         {
             _inMemorySlugStore.Store(new Slug("Store_Adds_slug_value_to_collection"));
 
-            var result = InMemorySlugStore.Cache.Any(x => x.Value == "Store_Adds_slug_value_to_collection");
+            var result = InMemorySlugStore.Cache.ContainsKey("Store_Adds_slug_value_to_collection");
 
             Assert.That(result, Is.True);
         }
@@ -36,7 +36,7 @@ namespace SlugStar.Tests.SlugStore
         [Test]
         public void Exists_Returns_true_if_slug_value_exists()
         {
-            InMemorySlugStore.Cache.Add(new Slug("Exists_Returns_true_if_slug_value_exists"));
+            InMemorySlugStore.Cache.TryAdd("Exists_Returns_true_if_slug_value_exists", new Slug("Exists_Returns_true_if_slug_value_exists"));
 
             var result = _inMemorySlugStore.Exists("Exists_Returns_true_if_slug_value_exists");
 
