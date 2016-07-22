@@ -1,6 +1,7 @@
 ﻿using System.Collections.Concurrent;
 using System.Linq;
 using NUnit.Framework;
+using SlugStar.SlugStore;
 
 namespace SlugStar.Tests.SlugStore
 {

@@ -7,13 +7,35 @@ namespace SlugStar
 {
     public class SlugGenerator
     {
-        private readonly ISlugStore _slugStore;
-        private readonly ISlugAlgorithm _slugAlgorithm;
+        private ISlugStore _slugStore;
+        private ISlugAlgorithm _slugAlgorithm;
+        private readonly SlugGeneratorOptions _slugGeneratorOptions;
+
+        public SlugGenerator()
+            : this(new SlugGeneratorOptions(), new InMemorySlugStore(), new DefaultSlugAlgorithm())
+        { }
+
+        public SlugGenerator(SlugGeneratorOptions slugGeneratorOptions)
+            : this(slugGeneratorOptions, new InMemorySlugStore(), new DefaultSlugAlgorithm())
+        { }
+
+        public SlugGenerator(SlugGeneratorOptions slugGeneratorOptions, ISlugStore slugStore)
+            : this(slugGeneratorOptions, slugStore, new DefaultSlugAlgorithm())
+        { }
+
+        public SlugGenerator(SlugGeneratorOptions slugGeneratorOptions, ISlugAlgorithm slugAlgorithm)
+            : this(slugGeneratorOptions, new InMemorySlugStore(), slugAlgorithm)
+        { }
 
         public SlugGenerator(ISlugStore slugStore, ISlugAlgorithm slugAlgorithm)
+            : this(new SlugGeneratorOptions(), slugStore, slugAlgorithm)
+        { }
+
+        public SlugGenerator(SlugGeneratorOptions slugGeneratorOptions, ISlugStore slugStore, ISlugAlgorithm slugAlgorithm)
         {
             _slugStore = slugStore;
             _slugAlgorithm = slugAlgorithm;
+            _slugGeneratorOptions = slugGeneratorOptions;
         }
 
         public string GenerateSlug(string text, string[] uniquifiers = null)
@@ -68,7 +90,7 @@ namespace SlugStar
             //etc.... 
 
             string slugWithNumber = null;
-            var number = 1;
+            var number = _slugGeneratorOptions.IterationSeedValue ?? 1;
 
             while (slugWithNumber == null)
             {
