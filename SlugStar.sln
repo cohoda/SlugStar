@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlugStar", "src\SlugStar\Sl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlugStar.Tests", "tests\SlugStar.Tests\SlugStar.Tests.csproj", "{8B17A327-07EB-48CD-8373-6B34FF248BC4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{036ABF11-F2C8-4CC7-9CB1-37947E9553C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlugStar.ConsoleAppSample", "samples\SlugStar.ConsoleAppSample\SlugStar.ConsoleAppSample.csproj", "{5B9C78A0-4F25-450D-8E06-5153B00A00D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlugStar.SqlServer", "src\SlugStar.SqlServer\SlugStar.SqlServer.csproj", "{1B27EE0C-98B1-4FB2-8830-910AE9D5D69C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,8 +27,19 @@ Global
 		{8B17A327-07EB-48CD-8373-6B34FF248BC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B17A327-07EB-48CD-8373-6B34FF248BC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B17A327-07EB-48CD-8373-6B34FF248BC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B9C78A0-4F25-450D-8E06-5153B00A00D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B9C78A0-4F25-450D-8E06-5153B00A00D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B9C78A0-4F25-450D-8E06-5153B00A00D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B9C78A0-4F25-450D-8E06-5153B00A00D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B27EE0C-98B1-4FB2-8830-910AE9D5D69C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B27EE0C-98B1-4FB2-8830-910AE9D5D69C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B27EE0C-98B1-4FB2-8830-910AE9D5D69C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B27EE0C-98B1-4FB2-8830-910AE9D5D69C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5B9C78A0-4F25-450D-8E06-5153B00A00D5} = {036ABF11-F2C8-4CC7-9CB1-37947E9553C5}
 	EndGlobalSection
 EndGlobal
