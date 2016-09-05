@@ -26,9 +26,6 @@ namespace SlugStar.SlugAlgorithm
                 // hyphens   
                 str => Regex.Replace(str, @"\s", "-")
 
-            // cut and trim 
-            //str => str.Substring(0, str.Length <= 45 ? str.Length : 45).Trim();
-
                 );
         }
 
