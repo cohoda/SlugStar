@@ -11,7 +11,8 @@ namespace SlugStar.SqlServer
         private readonly SqlServerSlugStoreOptions _options;
         private readonly string _connectionString;
 
-        public SqlServerSlugStore(string nameOrConnectionString) : this(nameOrConnectionString, new SqlServerSlugStoreOptions())
+        public SqlServerSlugStore(string nameOrConnectionString) 
+            : this(nameOrConnectionString, new SqlServerSlugStoreOptions())
         { }
 
         public SqlServerSlugStore(string nameOrConnectionString, SqlServerSlugStoreOptions options = null)
