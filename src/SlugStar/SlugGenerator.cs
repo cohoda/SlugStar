@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using SlugStar.SlugAlgorithm;
 using SlugStar.SlugStore;
@@ -7,8 +6,8 @@ namespace SlugStar
 {
     public class SlugGenerator
     {
-        private ISlugStore _slugStore;
-        private ISlugAlgorithm _slugAlgorithm;
+        private readonly ISlugStore _slugStore;
+        private readonly ISlugAlgorithm _slugAlgorithm;
         private readonly SlugGeneratorOptions _slugGeneratorOptions;
 
         public SlugGenerator()
