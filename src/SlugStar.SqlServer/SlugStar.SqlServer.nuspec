@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>$id$</id>
+    <id>SlugStar.SqlServer</id>
     <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
+    <title>SlugStar SQL Server Storage</title>
+    <authors>Alex Brown</authors>
+    <owners>Cohoda</owners>
     <projectUrl>https://github.com/cohoda/SlugStar</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>SQL .</description>
