@@ -4,7 +4,7 @@ using SlugStar.SlugStore;
 
 namespace SlugStar
 {
-    public class SlugGenerator
+    public class SlugGenerator : ISlugGenerator
     {
         private readonly ISlugStore _slugStore;
         private readonly ISlugAlgorithm _slugAlgorithm;
@@ -80,7 +80,7 @@ namespace SlugStar
             return GenerateAndStoreSlugWithIncrementedNumberAppendage(text);
         }
 
-        private string GenerateAndStoreSlugWithIncrementedNumberAppendage(string text)
+        public string GenerateAndStoreSlugWithIncrementedNumberAppendage(string text)
         {
             // this could be a bit slow if there's a load of slugs with the same precident:
             //slug-1

@@ -34,6 +34,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ISlugGenerator.cs" />
     <Compile Include="Slug.cs" />
     <Compile Include="SlugGeneratorOptions.cs" />
     <Compile Include="SlugStore\InMemorySlugStore.cs" />
