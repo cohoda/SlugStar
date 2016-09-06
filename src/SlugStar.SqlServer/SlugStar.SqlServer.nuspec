@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <projectUrl>https://github.com/cohoda/SlugStar</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>SQL .</description>
+    <releaseNotes>Initial release.</releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>Slug, URL, SQL Server</tags>
+    <dependencies>
+      <dependency id="SlugStar" version="[0.0.0]" />
+    </dependencies>
+  </metadata>
+</package>
