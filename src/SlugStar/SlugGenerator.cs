@@ -26,6 +26,10 @@ namespace SlugStar
             : this(slugGeneratorOptions, new InMemorySlugStore(), slugAlgorithm)
         { }
 
+        public SlugGenerator(ISlugStore slugStore)
+            : this(slugStore, new DefaultSlugAlgorithm())
+        {}
+
         public SlugGenerator(ISlugStore slugStore, ISlugAlgorithm slugAlgorithm)
             : this(new SlugGeneratorOptions(), slugStore, slugAlgorithm)
         { }
