@@ -13,7 +13,7 @@
     <copyright>Copyright 2016</copyright>
     <tags>Slug, URL, SQL Server</tags>
     <dependencies>
-      <dependency id="SlugStar" />
+      <dependency id="SlugStar" version="[0.0.0]" />
     </dependencies>
   </metadata>
 </package>
