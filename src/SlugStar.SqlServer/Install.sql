@@ -12,7 +12,7 @@ ELSE
 DECLARE @SCHEMA_ID int;
 SELECT @SCHEMA_ID = [schema_id] FROM [sys].[schemas] WHERE [name] = '$(SCHEMA_NAME)';
 
--- Create the [$(HangFireSchema)].Schema table if not exists
+-- Create the Schema table if not exists
 IF NOT EXISTS(SELECT [object_id] FROM [sys].[tables] 
     WHERE [name] = '$(TABLE_NAME)' AND [schema_id] = @SCHEMA_ID)
 BEGIN
